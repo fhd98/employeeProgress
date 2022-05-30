@@ -24,4 +24,6 @@ Route::post('dashboard',[\App\Http\Controllers\loginController::class,'postLogin
 
 Route::get('/logout',[\App\Http\Controllers\loginController::class,'adminLogout']);
 
+//just for changing
+
 
