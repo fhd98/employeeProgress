@@ -97,22 +97,22 @@
                 <th>Name</th>						       
                 <th>Role</th>
                 <th>Department</th>
-                <th>Status</th>
-                <th>Action</th>
+                
+                    
             </tr>
           </thead>
           <tbody>
+            @foreach ($appEmp as $row)
             <tr>
               
-              <td>Michael Holz</td>
-              <td>04/10/2013</td>                        
-              <td>Admin</td>
-              <td><span class="status text-success">&bull;</span> Active</td>
-              <td>
-                  <a href="#" class="settings" title="Settings" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
-                  <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
-              </td>
+              <td>{{$row->e_name}}</td>
+              <td>{{$row->role}}</td>                        
+              <td>{{$row->department}}</td>
+              
+              
           </tr>
+          
+          @endforeach
             
             
             

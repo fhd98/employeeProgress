@@ -32,7 +32,44 @@ class empController extends Controller {
     else {
         $error="Please Login First!";
             return view ('login', compact('error'));
+    }    
+}
+
+
+public function approvedEmpDisplay() {
+        
+        if (session()->has('user')){
+
+        
+        $appEmp= DB::table('employee_info')->where('status', 'approved')->get();
+
+        return view ('approvedEmp', compact('appEmp'));
+
+        
     }
     
+    else {
+        $error="Please Login First!";
+            return view ('login', compact('error'));
+    }    
 }
+
+public function allEmpDisplay() {
+        
+        if (session()->has('user')){
+
+        
+        $allEmp= DB::table('employee_info')->get();
+
+        return view ('allEmp', compact('allEmp'));
+
+        
+    }
+    
+    else {
+        $error="Please Login First!";
+            return view ('login', compact('error'));
+    }    
+}
+
 }

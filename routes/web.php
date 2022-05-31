@@ -25,17 +25,14 @@ Route::post('dashboard',[\App\Http\Controllers\loginController::class,'postLogin
 Route::get('/logout',[\App\Http\Controllers\loginController::class,'adminLogout']);
 
 
-//employee signup
+//employee Info Display
 
 
 Route::get('/pendingEmployees',[\App\Http\Controllers\empController::class,'pendingEmpDisplay']);
 
+Route::get('/approvedEmployees',[\App\Http\Controllers\empController::class,'approvedEmpDisplay']);
+Route::get('/allEmployees',[\App\Http\Controllers\empController::class,'allEmpDisplay']);
 
 
-Route::get('approvedEmployees', function () {
-    return view('approvedEmp');
-});
 
-Route::get('allEmployees', function () {
-    return view('allEmp');
-});
+
