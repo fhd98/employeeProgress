@@ -24,6 +24,17 @@ Route::post('dashboard',[\App\Http\Controllers\loginController::class,'postLogin
 
 Route::get('/logout',[\App\Http\Controllers\loginController::class,'adminLogout']);
 
-//just for changing
 
+//employee signup
 
+Route::get('pending', function () {
+    return view('pendingEmp');
+});
+
+Route::get('approved', function () {
+    return view('approvedEmp');
+});
+
+Route::get('all', function () {
+    return view('allEmp');
+});
