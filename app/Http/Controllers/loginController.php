@@ -35,7 +35,7 @@ class loginController extends Controller
       //  echo"<pre>";        print_r($verify); exit;
         if (empty($verify)) {
             
-            $error="Invalid Credentials";
+            $error="Invalid Username or Password. Try Again!";
             return view ('login', compact('error'));
         } else {
             $data = $request->input();

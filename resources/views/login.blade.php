@@ -29,7 +29,8 @@
                         
                         @if (!empty($error))
                         <div class="alert alert-danger" role="alert">
-                            Invalid Credentials. Try Again!
+                            
+                            {{$error}}
                         </div>
                         @endif
                         

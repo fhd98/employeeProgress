@@ -7,7 +7,8 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
-use App\Models\empSignupModel;
+use App\Models\empModel;
+use Illuminate\Support\Facades\DB;
 
 /**
  * Description of empController
@@ -16,4 +17,22 @@ use App\Models\empSignupModel;
  */
 class empController extends Controller {
     //put your code here
+    public function pendingEmpDisplay() {
+        
+        if (session()->has('user')){
+
+        
+        $pendEmp= DB::table('employee_info')->where('status', 'pending')->get();
+
+        return view ('pendingEmp', compact('pendEmp'));
+
+        
+    }
+    
+    else {
+        $error="Please Login First!";
+            return view ('login', compact('error'));
+    }
+    
+}
 }

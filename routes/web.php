@@ -27,14 +27,15 @@ Route::get('/logout',[\App\Http\Controllers\loginController::class,'adminLogout'
 
 //employee signup
 
-Route::get('pending', function () {
-    return view('pendingEmp');
-});
 
-Route::get('approved', function () {
+Route::get('/pendingEmployees',[\App\Http\Controllers\empController::class,'pendingEmpDisplay']);
+
+
+
+Route::get('approvedEmployees', function () {
     return view('approvedEmp');
 });
 
-Route::get('all', function () {
+Route::get('allEmployees', function () {
     return view('allEmp');
 });

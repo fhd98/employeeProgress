@@ -102,17 +102,20 @@
             </tr>
           </thead>
           <tbody>
+              @foreach ($pendEmp as $row)
             <tr>
               
-              <td>Michael Holz</td>
-              <td>04/10/2013</td>                        
-              <td>Admin</td>
-              <td><span class="status text-success">&bull;</span> Active</td>
+              <td>{{$row->e_name}}</td>
+              <td>{{$row->role}}</td>                        
+              <td>{{$row->department}}</td>
+              <td>{{$row->status}}</td>
               <td>
                   <a href="#" class="settings" title="Settings" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
                   <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
               </td>
           </tr>
+          
+          @endforeach
             
             
             
