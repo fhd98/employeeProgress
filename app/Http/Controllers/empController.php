@@ -40,6 +40,18 @@ class empController extends Controller {
             return view('login', compact('error'));
         }
     }
+    
+    public function rejectedEmpDisplay() {
+
+        if (session()->has('user')) {
+
+            $rejectedEmp = DB::table('employee_info')->where('status', 'rejected')->get();
+            return view('rejEmp', compact('rejectedEmp'));
+        } else {
+            $error = "Please Login First!";
+            return view('login', compact('error'));
+        }
+    }
 
     public function allEmpDisplay() {
 
@@ -68,4 +80,11 @@ class empController extends Controller {
               ->update(['status' => 'approved']);
         return redirect('pendingEmployees');
     }
+    
+    public function deleteEmployee($id) {
+        $deleted = DB::table('employee_info')->where('employeeID',$id)->delete();
+        return redirect('rejectedEmployees');
+
+    }
+    
 }

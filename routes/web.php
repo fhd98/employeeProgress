@@ -32,9 +32,12 @@ Route::get('/pendingEmployees',[\App\Http\Controllers\empController::class,'pend
 
 Route::get('/approvedEmployees',[\App\Http\Controllers\empController::class,'approvedEmpDisplay']);
 Route::get('/allEmployees',[\App\Http\Controllers\empController::class,'allEmpDisplay']);
+Route::get('/rejectedEmployees',[\App\Http\Controllers\empController::class,'rejectedEmpDisplay']);
 
 // employee  edit, delete from Pending Employee View
 
 
 Route::get('/rejectEmp/{id}',[\App\Http\Controllers\empController::class,'rejectEmployee']);
 Route::get('/approveEmp/{id}',[\App\Http\Controllers\empController::class,'approveEmployee']);
+
+Route::get('/deleteEmp/{id}',[\App\Http\Controllers\empController::class,'deleteEmployee']);
