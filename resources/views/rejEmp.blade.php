@@ -44,7 +44,15 @@
       <li class="nav-item d-none d-sm-inline-block">
         <a href="/dashboard" class="nav-link">Home</a>
       </li>
+      <li class=" d-sm-inline-block">
+        <a href="/approvedEmployees" class="nav-link">Approved</a>
+      </li>
       
+      <li class=" d-sm-inline-block">
+        <a href="/pendingEmployees" class="nav-link">Pending</a>
+      </li>
+      <li class=" d-sm-inline-block">
+        <a href="/allEmployees" class="nav-link">All</a>
       </li>
     </ul>
 
@@ -126,6 +134,10 @@
             
           </tbody>
         </table>
+          @if (empty($row))
+                        <h2 class="bg-light p-5 text-center">No Rejected Employee</h2>
+                        
+                        @endif
       </div>
 
 

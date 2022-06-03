@@ -41,11 +41,21 @@
       <li class="nav-item">
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="/dashboard" class="nav-link">Home</a>
+        <li class=" d-sm-inline-block">
+          <a href="/dashboard" class="nav-link">Home</a>
+        </li>
+        
+        <li class=" d-sm-inline-block">
+        <a href="/pendingEmployees" class="nav-link">Pending</a>
       </li>
       
+      <li class=" d-sm-inline-block">
+        <a href="/rejectedEmployees" class="nav-link">Rejected</a>
       </li>
+      <li class=" d-sm-inline-block">
+        <a href="/allEmployees" class="nav-link">All</a>
+      </li>
+     
     </ul>
 
     <!-- Right navbar links -->
@@ -118,6 +128,11 @@
             
           </tbody>
         </table>
+          
+          @if (empty($row))
+                        <h2 class="bg-light p-5 text-center">No Approved Employee</h2>
+                        
+                        @endif
       </div>
 
 
