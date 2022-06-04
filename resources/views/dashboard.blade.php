@@ -91,7 +91,7 @@
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3></h3>
+                <h3>{{$countPending}}</h3>
 
                 <p>Pending Requests</p>
                 <div class="icon">
@@ -107,7 +107,7 @@
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h3></h3>
+                <h3>{{$countApproved}}</h3>
 
                 <p>Approved Employees</p>
               </div>
@@ -126,7 +126,7 @@
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3></h3>
+                <h3>{{$countRejected}}</h3>
 
                 <p>Rejected Employees</p>
               </div>
@@ -143,7 +143,7 @@
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3></h3>
+                <h3>{{$countAll}}</h3>
 
                 <p>All Employees</p>
               </div>

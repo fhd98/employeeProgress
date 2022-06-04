@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\loginModel;
+use App\Models\empModel;
 
 class loginController extends Controller
 {
@@ -16,9 +17,16 @@ class loginController extends Controller
 
             
             $verify = loginModel::where('username', session('user'))->first();
-          //  echo"<pre>";        print_r($verify);exit;
-            return view("dashboard", compact('verify'));
+            $countPending= empModel::where('status','pending')->count();
+            $countApproved= empModel::where('status','approved')->count();
+            $countRejected= empModel::where('status','rejected')->count();
+            $countAll= empModel::count();
+            
+            
+           // echo"<pre>";        print_r($countAll);exit;
+            return view("dashboard", compact('verify','countPending','countApproved','countRejected','countAll'));
        }
+       
         
         else{
         return view ('login');
