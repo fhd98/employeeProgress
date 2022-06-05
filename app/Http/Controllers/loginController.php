@@ -49,8 +49,14 @@ class loginController extends Controller
             $data = $request->input();
             $request->session()->put('user', $data['username']);
            // $request->session()->put('pwd', $data['password']);
+            
+            $countPending= empModel::where('status','pending')->count();
+            $countApproved= empModel::where('status','approved')->count();
+            $countRejected= empModel::where('status','rejected')->count();
+            $countAll= empModel::count();
+            
 
-            return view("dashboard", compact('verify'));
+            return view("dashboard", compact('verify','countPending','countApproved','countRejected','countAll'));
         }
         
     }
