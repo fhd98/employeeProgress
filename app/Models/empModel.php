@@ -20,4 +20,18 @@ class empModel extends Model{
     protected $primaryKey='employeeID';
     public $timestamps= false;
     
+    public static function Store($post)
+    {
+        $oEmp =new empModel();
+        $oEmp->e_email=$post['email'];
+        $oEmp->e_name=$post['name'];
+        $oEmp->password=$post['password'];
+        $oEmp->department=$post['dept'];
+        $oEmp->gender=$post['gender'];
+        
+        
+        $oEmp->save();
+    }
+    
+    
 }

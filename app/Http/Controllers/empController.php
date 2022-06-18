@@ -17,6 +17,17 @@ use Illuminate\Support\Facades\DB;
  * @author hp
  */
 class empController extends Controller {
+    
+    //test
+    public function test(){
+        return ['status'=>'success'];
+    }
+    
+    public function signup(){
+        $post=request()->post();
+        $oEmp= empModel::Store($post);
+        return ['status'=>'pending'];
+    }
 
     //put your code here
     public function pendingEmpDisplay() {

@@ -103,7 +103,7 @@
             <tr>
               
                 <th>Name</th>						       
-                <th>Role</th>
+                <th>Gender</th>
                 <th>Department</th>
                 <th>Status</th>
                 
@@ -114,7 +114,7 @@
             <tr>
               
               <td>{{$row->e_name}}</td>
-              <td>{{$row->role}}</td>                        
+              <td>{{$row->gender}}</td>                        
               <td>{{$row->department}}</td>
               <td>{{$row->status}}</td>
               
