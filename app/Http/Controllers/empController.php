@@ -23,11 +23,7 @@ class empController extends Controller {
         return ['status'=>'success'];
     }
     
-    public function signup(){
-        $post=request()->post();
-        $oEmp= empModel::Store($post);
-        return ['status'=>'pending'];
-    }
+    
 
     //put your code here
     public function pendingEmpDisplay() {
