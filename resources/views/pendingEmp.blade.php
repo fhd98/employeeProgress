@@ -56,6 +56,13 @@
         <a href="/allEmployees" class="nav-link">All</a>
       </li>
       
+      <li class=" d-sm-inline-block">
+        <a href="/task-assign" class="nav-link">Task Assigning</a>
+      </li><!-- comment -->
+      <li class=" d-sm-inline-block">
+        <a href="/task-view" class="nav-link">Tasks View</a>
+      </li>
+      
     </ul>
 
     <!-- Right navbar links -->

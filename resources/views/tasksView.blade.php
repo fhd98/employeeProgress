@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Admin Dashboard</title>
+  <title>Tasks View</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -26,7 +26,7 @@
   <!-- summernote -->
   <link rel="stylesheet" href="assets/plugins/summernote/summernote-bs4.min.css">
 </head>
-<body class="hold-transition sidebar-mini layout-fixed">
+<body class="hold-transition sidebar-mini layout-fixed"> 
 <div class="wrapper">
 
   <!-- Preloader -->
@@ -45,7 +45,24 @@
         <a href="/dashboard" class="nav-link">Home</a>
       </li>
       
+      <li class=" d-sm-inline-block">
+        <a href="/approvedEmployees" class="nav-link">Approved</a>
       </li>
+      
+      <li class=" d-sm-inline-block">
+        <a href="/rejectedEmployees" class="nav-link">Rejected</a>
+      </li>
+      <li class=" d-sm-inline-block">
+        <a href="/allEmployees" class="nav-link">All</a>
+      </li>
+      
+      <li class=" d-sm-inline-block">
+        <a href="/task-assign" class="nav-link">Task Assigning</a>
+      </li><!-- comment -->
+      <li class=" d-sm-inline-block">
+        <a href="/task-view" class="nav-link">Tasks View</a>
+      </li>
+      
     </ul>
 
     <!-- Right navbar links -->
@@ -70,7 +87,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Welcome, {{$verify['name'] ?? ''}}</h1>
+            <!--<h1 class="m-0">Welcome, {{$verify['name'] ?? ''}}</h1>-->
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -83,133 +100,62 @@
     <!-- /.content-header -->
 
     <!-- Main content -->
-    <section class="content">
-      <div class="container-fluid">
-        <!-- Small boxes (Stat box) -->
-        <div class="row">
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-warning">
-              <div class="inner">
-                <h3>{{$countPending}}</h3>
+    <div class="content">
+    
+    <div class="container">
+      <h2 class="mb-5">List of Tasks Assigned</h2>
 
-                <p>Pending Requests</p>
-                <div class="icon">
-                <i class="ion ion-person-add"></i>
-              </div>
-              </div>
+      <div class="table-responsive">
+
+        <table class="table custom-table">
+          <thead>
+            <tr>
               
-              <a href="/pendingEmployees" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-success">
-              <div class="inner">
-                <h3>{{$countApproved}}</h3>
-
-                <p>Approved Employees</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-stats-bars"></i>
-              </div>
-              <a href="/approvedEmployees" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            
-            
-            
-            <!-- small box -->
-            <div class="small-box bg-danger">
-              <div class="inner">
-                <h3>{{$countRejected}}</h3>
-
-                <p>Rejected Employees</p>
-              </div>
-            
-              <a href="rejectedEmployees" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            
-            
-            
-            <!-- small box -->
-            <div class="small-box bg-info">
-              <div class="inner">
-                <h3>{{$countAll}}</h3>
-
-                <p>All Employees</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-pie-graph"></i>
-              </div>
-              <a href="allEmployees" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
+                <th>Assigned To</th>						       
+                <th>Task Title</th>
+                <th>Details</th>
+                <th>Deadline</th>
+                <th>Employee Status</th>
+                <th>Manager Status</th>
+            </tr>
+          </thead>
+          <tbody>
+              @foreach ($tasksList as $row)
+            <tr>
+              
+              <td>{{$row->emp_name}}</td>
+              <td>{{$row->t_title}}</td>
+              <td>{{$row->t_details}}</td>
+              <td>{{$row->deadline}}</td> 
+              <td>{{$row->emp_comp_status}}</td>
+              <td>{{$row->admin_comp_status}}</td>
+              
+              
+              
+          </tr>
           
           
+          @endforeach
+            
           
+            
+            
+          </tbody>
           
-          <!-- ./col -->
-        </div>
-        <div class="row">
-        <div class="col-lg-3 col-6">
-        <div class="small-box bg-info">
-              <div class="inner">
-                <h3>Assign Tasks</h3>
+        </table>
+          
+          @if (empty($row))
+                        <h2 class="bg-light p-5 text-center">No Pending Employee</h2>
+                        
+                        @endif
+      </div>
 
-                <p></p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-pie-graph"></i>
-              </div>
-              <a href="task-assign" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-        </div>
-            
-            <div class="col-lg-3 col-6">
-        <div class="small-box bg-success">
-              <div class="inner">
-                <h3>View Tasks</h3>
 
-                <p></p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-pie-graph"></i>
-              </div>
-              <a href="task-view" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-        </div>
-            
-            
-            
-        <!-- /.row -->
-        <!-- Main row -->
-        
-        
-                <!-- /. tools -->
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body pt-0">
-                <!--The calendar -->
-                <div id="calendar" style="width: 100%"></div>
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
-          </section>
-          <!-- right col -->
-        </div>
-        <!-- /.row (main row) -->
-      </div><!-- /.container-fluid -->
-    </section>
+
+
+    </div>
+
+  </div>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
@@ -259,5 +205,9 @@
 <!-- AdminLTE for demo purposes -->
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="assets/dist/js/pages/dashboard.js"></script>
+
+
+
+
 </body>
 </html>

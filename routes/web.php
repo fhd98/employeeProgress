@@ -47,5 +47,11 @@ Route::get('/deleteEmp/{id}',[\App\Http\Controllers\empController::class,'delete
 //task
 
 Route::get('/task-assign',[App\Http\Controllers\tasksController::class,'taskAssign']);
+Route::post('taskPost',[\App\Http\Controllers\tasksController::class,'taskPostAction']);
+
+Route::get('/task-view',[App\Http\Controllers\tasksController::class,'taskViewAction']);
+
+
+
 
 

@@ -56,6 +56,16 @@
       <li class=" d-sm-inline-block">
         <a href="/pendingEmployees" class="nav-link">Pending</a>
       </li>
+      
+      <li class=" d-sm-inline-block">
+        <a href="/task-assign" class="nav-link">Task Assigning</a>
+      </li><!-- comment -->
+      <li class=" d-sm-inline-block">
+        <a href="/task-view" class="nav-link">Tasks View</a>
+      </li>
+      
+      
+      
     </ul>
 
     <!-- Right navbar links -->
@@ -75,18 +85,22 @@
                 <h3 class="card-title">Assign Task</h3>
               </div>
             
-              <form method="POST" action="/">
+              <form method="POST" action="/taskPost">
                   
                   {!! csrf_field() !!}
-                <div class="card-body">
-
-                
+                  
+                  @if(session()->has('error'))
+                  <div class="col-md-12 mt-2">
+                      <div class="alert alert-danger"> {{$error ?? '' }} </div>                                                              
+                  </div>                      
+                  @endif
+                <div class="card-body">             
 
                       
 
                       <div class="form-group">
                         <label>Assign To</label>
-                        <select name="assign_to"  class="form-control">
+                        <select  name="assign_to"  class="form-control">
                           <option value="">Select Employee</option>
                           @foreach ($employeeList as $row)
                           <option value="{{$row->e_name}}">{{$row->e_name}}</option>
@@ -97,17 +111,17 @@
 
                     <div class="form-group">
                         <label>Task Title </label>
-                        <input name="t_title"  type="text" class="form-control" placeholder=""/>
+                        <input name="t_title" value="{{$postedData['t_title'] ?? ''}}"  type="text" class="form-control" placeholder=""/>
                       </div>
                     
                       <div class="form-group">
                         <label>Details </label>
-                        <input name="t_details"  type="text" class="form-control" placeholder=""/>
+                        <input name="t_details" value="{{$postedData['t_details'] ?? ''}}"  type="text" class="form-control" placeholder=""/>
                       </div>
 
                       <div class="form-group">
                   <label>Completion Deadline:</label> <br/>
-                  <input  type="date" id="" name="deadline"/>
+                  <input   type="date" value="{{$postedData['deadline'] ?? ''}}" id="" name="deadline"/>
                 </div>
 
                 
@@ -117,7 +131,7 @@
                 </div>
 
                 <div class="card-footer">
-                  <button type="button"  class="btn btn-primary">Submit</button>
+                  <button type="submit"  class="btn btn-primary">Submit</button>
                 </div>
               </form>
               </div>

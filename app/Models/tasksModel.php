@@ -10,6 +10,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 
+
+
 /**
  * Description of tasksModel
  *
@@ -21,4 +23,17 @@ class tasksModel extends Model {
     protected $table= 'tasks';
     protected $primaryKey='task_id';
     public $timestamps= false;
+    
+    public function store(Request $request){
+        $ooTask= new tasksModel();
+        
+        $ooTask->emp_name=$request->assign_to;
+        $ooTask->t_title=$request->t_title;
+        $ooTask->t_details=$request->t_details;
+        $ooTask->deadline=$request->deadline;
+        $ooTask->department=session('adminDeptName');
+               
+        $ooTask->save();
+         
+    }
 }
