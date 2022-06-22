@@ -6,12 +6,31 @@
  */
 
 namespace App\Http\Controllers;
+use App\Models\tasksModel;
+use App\Models\empModel;
 
 /**
  * Description of tasksController
  *
  * @author hp
  */
-class tasksController {
+class tasksController extends Controller {
     //put your code here
+    
+    public function taskAssign() {
+
+        if (session()->has('user')) {
+            $deptName=(session('adminDeptName')); 
+            //echo $deptName.'hello'; exit;
+            
+            $employeeList= empModel::where('department', $deptName)->where('status','approved')->get();
+            //echo $employeeList;exit;
+            
+            return view('assignTask', compact('employeeList'));
+        } else {
+            $error = "Please Login First!";
+            return view('login', compact('error'));
+        }
+    }
+    
 }

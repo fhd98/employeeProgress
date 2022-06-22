@@ -24,9 +24,7 @@ Route::post('dashboard',[\App\Http\Controllers\loginController::class,'postLogin
 
 Route::get('/logout',[\App\Http\Controllers\loginController::class,'adminLogout']);
 
-Route::get("/tasks", function(){
-   return view("assignTask");
-});
+
 
 
 //employee Info Display
@@ -45,3 +43,9 @@ Route::get('/rejectEmp/{id}',[\App\Http\Controllers\empController::class,'reject
 Route::get('/approveEmp/{id}',[\App\Http\Controllers\empController::class,'approveEmployee']);
 
 Route::get('/deleteEmp/{id}',[\App\Http\Controllers\empController::class,'deleteEmployee']);
+
+//task
+
+Route::get('/task-assign',[App\Http\Controllers\tasksController::class,'taskAssign']);
+
+

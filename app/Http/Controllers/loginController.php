@@ -48,7 +48,17 @@ class loginController extends Controller
         } else {
             $data = $request->input();
             $request->session()->put('user', $data['username']);
-           // $request->session()->put('pwd', $data['password']);
+       
+//putting deptname in session
+            
+            $adminDept = loginModel::select('department')
+                           ->where('username', '=', $data['username'])
+                           ->first();
+            
+        //echo $adminDept->department ; exit;
+            //echo "<pre>"; print_r($adminDept);exit;
+            session(['adminDeptName' => $adminDept->department]);
+            
             
             $countPending= empModel::where('status','pending')->count();
             $countApproved= empModel::where('status','approved')->count();
