@@ -24,10 +24,10 @@ class apiController extends Controller {
     
     public function loginCheck(){
         $post=request()->post();
-        $oEmp= empModel::where('e_email',$post['email'])->where('password',$post['password'])->where('status','approved')->first();
+        $oEmp= empModel::where('e_email',$post['email'])->where('password',$post['password'])->first();
         
         if ($oEmp){
-            return["status"=>"Success",
+            return["log"=>"Success",
                 "userDetails"=>$oEmp];
         }
         else{

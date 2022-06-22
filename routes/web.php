@@ -24,6 +24,10 @@ Route::post('dashboard',[\App\Http\Controllers\loginController::class,'postLogin
 
 Route::get('/logout',[\App\Http\Controllers\loginController::class,'adminLogout']);
 
+Route::get("/tasks", function(){
+   return view("assignTask");
+});
+
 
 //employee Info Display
 
