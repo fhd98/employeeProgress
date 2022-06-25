@@ -29,7 +29,7 @@ class empController extends Controller {
     public function pendingEmpDisplay() {
 
         if (session()->has('user')) {
-            $pendEmp = DB::table('employee_info')->where('status', 'pending')->get();
+            $pendEmp = DB::table('employee_info')->where('status', 'pending')->where('department',session('adminDeptName'))->get();
             return view('pendingEmp', compact('pendEmp'));
         } else {
             $error = "Please Login First!";
@@ -40,7 +40,7 @@ class empController extends Controller {
     public function approvedEmpDisplay() {
 
         if (session()->has('user')) {
-            $appEmp = DB::table('employee_info')->where('status', 'approved')->get();
+            $appEmp = DB::table('employee_info')->where('status', 'approved')->where('department',session('adminDeptName'))->get();
             return view('approvedEmp', compact('appEmp'));
         } else {
             $error = "Please Login First!";
@@ -52,7 +52,7 @@ class empController extends Controller {
 
         if (session()->has('user')) {
 
-            $rejectedEmp = DB::table('employee_info')->where('status', 'rejected')->get();
+            $rejectedEmp = DB::table('employee_info')->where('status', 'rejected')->where('department',session('adminDeptName'))->get();
             return view('rejEmp', compact('rejectedEmp'));
         } else {
             $error = "Please Login First!";
@@ -64,7 +64,7 @@ class empController extends Controller {
 
         if (session()->has('user')) {
 
-            $allEmp = DB::table('employee_info')->get();
+            $allEmp = DB::table('employee_info')->where('department',session('adminDeptName'))->get();
             return view('allEmp', compact('allEmp'));
         } else {
             $error = "Please Login First!";

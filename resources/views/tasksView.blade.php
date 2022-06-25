@@ -115,8 +115,8 @@
                 <th>Task Title</th>
                 <th>Details</th>
                 <th>Deadline</th>
-                <th>Employee Status</th>
-                <th>Manager Status</th>
+                <th>Task Status</th>
+                
             </tr>
           </thead>
           <tbody>
@@ -128,7 +128,7 @@
               <td>{{$row->t_details}}</td>
               <td>{{$row->deadline}}</td> 
               <td>{{$row->emp_comp_status}}</td>
-              <td>{{$row->admin_comp_status}}</td>
+              
               
               
               
@@ -145,7 +145,7 @@
         </table>
           
           @if (empty($row))
-                        <h2 class="bg-light p-5 text-center">No Pending Employee</h2>
+                        <h2 class="bg-light p-5 text-center">No Tasks To View</h2>
                         
                         @endif
       </div>

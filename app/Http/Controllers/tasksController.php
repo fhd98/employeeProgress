@@ -50,11 +50,11 @@ class tasksController extends Controller {
         $deptName=(session('adminDeptName')); 
         $POST = request()->post();
         $validator = validator()->make($POST, [
-            't_title' => 'required|min:10',
+            't_title' => 'required|min:5',
             'deadline' => 'required|date|after:yesterday',
                 ],
                 ['t_title.required' => 'Title Required ',
-                    't_title.min' => 'Minimum 10 characters required in title',]
+                    't_title.min' => 'Minimum 5 characters required in title',]
         );
 
         if ($validator->fails()) {
@@ -72,7 +72,7 @@ class tasksController extends Controller {
 //        $oooDept->department=session('adminDeptName');
 //        $oooDept->save();
         
-        return redirect('dashboard');
+        return redirect('task-view');
         }
     }
     

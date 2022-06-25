@@ -100,7 +100,7 @@
 
                       <div class="form-group">
                         <label>Assign To</label>
-                        <select  name="assign_to"  class="form-control">
+                        <select required  name="assign_to"  class="form-control">
                           <option value="">Select Employee</option>
                           @foreach ($employeeList as $row)
                           <option value="{{$row->e_name}}">{{$row->e_name}}</option>

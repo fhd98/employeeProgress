@@ -17,10 +17,10 @@ class loginController extends Controller
 
             
             $verify = loginModel::where('username', session('user'))->first();
-            $countPending= empModel::where('status','pending')->count();
-            $countApproved= empModel::where('status','approved')->count();
-            $countRejected= empModel::where('status','rejected')->count();
-            $countAll= empModel::count();
+            $countPending= empModel::where('status','pending')->where('department',session('adminDeptName'))->count();
+            $countApproved= empModel::where('status','approved')->where('department',session('adminDeptName'))->count();
+            $countRejected= empModel::where('status','rejected')->where('department',session('adminDeptName'))->count();
+            $countAll= empModel::where('department',session('adminDeptName'))->count();
             
             
            // echo"<pre>";        print_r($countAll);exit;
@@ -60,10 +60,10 @@ class loginController extends Controller
             session(['adminDeptName' => $adminDept->department]);
             
             
-            $countPending= empModel::where('status','pending')->count();
-            $countApproved= empModel::where('status','approved')->count();
-            $countRejected= empModel::where('status','rejected')->count();
-            $countAll= empModel::count();
+             $countPending= empModel::where('status','pending')->where('department',session('adminDeptName'))->count();
+            $countApproved= empModel::where('status','approved')->where('department',session('adminDeptName'))->count();
+            $countRejected= empModel::where('status','rejected')->where('department',session('adminDeptName'))->count();
+            $countAll= empModel::where('department',session('adminDeptName'))->count();
             
 
             return view("dashboard", compact('verify','countPending','countApproved','countRejected','countAll'));
