@@ -40,10 +40,28 @@ class apiController extends Controller {
     
     public function showTasks()
    {
-    //$data=request()->all();
+    
     $post=request()->all();
     $oTask=tasksModel::where('emp_name',$post)->get();
     return $oTask;
+   }
+   
+   public function taskCompletion()
+   {
+    
+    $data=request()->all();
+    $oTask=tasksModel::where('task_id',$data)->update(['emp_comp_status'=>'completed']);
+
+    return["status"=>"Task Completed"];
+   }
+   
+   public function taskProgress()
+   {
+    
+    $data=request()->all();
+    $oTask=tasksModel::where('task_id',$data)->update(['emp_comp_status'=>'in-progress']);
+
+    return["status"=>"Task Completed"];
    }
     
 }
