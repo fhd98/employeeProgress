@@ -26,5 +26,8 @@ Route::post('/signup',[apiController::class,'signup']);
 
 Route::post('/login',[apiController::class,'loginCheck']);
 
+Route::post('/taskView',[apiController::class,'showTasks']);
+
+
 
 

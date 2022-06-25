@@ -8,6 +8,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\empModel;
+use App\Models\tasksModel;
 
 /**
  * Description of apiController
@@ -34,4 +35,15 @@ class apiController extends Controller {
             return["status"=>"Login Failed"];
         }
     }
+    
+    
+    
+    public function showTasks()
+   {
+    //$data=request()->all();
+    $post=request()->all();
+    $oTask=tasksModel::where('emp_name',$post)->get();
+    return $oTask;
+   }
+    
 }
