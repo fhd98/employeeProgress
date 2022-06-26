@@ -9,6 +9,7 @@ namespace App\Http\Controllers;
 
 use App\Models\empModel;
 use App\Models\tasksModel;
+use App\Models\leavesModel;
 
 /**
  * Description of apiController
@@ -63,5 +64,14 @@ class apiController extends Controller {
 
     return["status"=>"Task Completed"];
    }
+   
+   public function leaveApply()
+   {
+        $post=request()->post();
+        $oLeave= leavesModel::Store($post);
+        return ['leave'=>'applied'];
+    
+   }
+   
     
 }

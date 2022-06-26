@@ -26,11 +26,14 @@ Route::post('/signup',[apiController::class,'signup']);
 
 Route::post('/login',[apiController::class,'loginCheck']);
 
+//tasks
 Route::post('/taskView',[apiController::class,'showTasks']);
 Route::post('/taskCompletion',[apiController::class,'taskCompletion']);
 Route::post('/taskProgress',[apiController::class,'taskProgress']);
 
 
+//leaves
 
+Route::post('/leaveApply',[apiController::class,'leaveApply']);
 
 
