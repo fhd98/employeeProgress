@@ -44,6 +44,16 @@ Route::get('/approveEmp/{id}',[\App\Http\Controllers\empController::class,'appro
 
 Route::get('/deleteEmp/{id}',[\App\Http\Controllers\empController::class,'deleteEmployee']);
 
+
+//leaves
+Route::get('/pending-leaves',[\App\Http\Controllers\leavesController::class,'pendingLeavesDisplay']);
+Route::get('/view-leaves',[\App\Http\Controllers\leavesController::class,'leavesView']);
+
+
+Route::get('/reject-leave/{id}',[\App\Http\Controllers\leavesController::class,'rejectLeave']);
+Route::get('/approve-leave/{id}',[\App\Http\Controllers\leavesController::class,'approveLeave']);
+
+
 //task
 
 Route::get('/task-assign',[App\Http\Controllers\tasksController::class,'taskAssign']);

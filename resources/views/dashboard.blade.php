@@ -71,6 +71,7 @@
         <div class="row mb-2">
           <div class="col-sm-6">
             <h1 class="m-0">Welcome, {{$verify['name'] ?? ''}}</h1>
+            <h4> Manager of Department: {{$verify['department'] ?? ''}} </h4>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -163,9 +164,9 @@
         <div class="col-lg-3 col-6">
         <div class="small-box bg-info">
               <div class="inner">
-                <h3>Assign Tasks</h3>
+                <h3> Tasks</h3>
 
-                <p></p>
+                <p>Assign</p>
               </div>
               <div class="icon">
                 <i class="ion ion-pie-graph"></i>
@@ -177,9 +178,9 @@
             <div class="col-lg-3 col-6">
         <div class="small-box bg-success">
               <div class="inner">
-                <h3>View Tasks</h3>
+                <h3> View</h3>
 
-                <p></p>
+                <p>Tasks</p>
               </div>
               <div class="icon">
                 <i class="ion ion-pie-graph"></i>
@@ -188,14 +189,45 @@
             </div>
         </div>
             
+       </div>     
             
+        <!-- /.row LEaves -->
+              <div class="row">
+        <div class="col-lg-3 col-6">
+        <div class="small-box bg-warning">
+              <div class="inner">
+                <h3>{{$pendingLeaves}}</h3>
+
+                <p>Pending Leaves</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-person-add"></i>
+              </div>
+              <a href="pending-leaves" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
             
-        <!-- /.row -->
+            <div class="col-lg-3 col-6">
+        <div class="small-box bg-info">
+              <div class="inner">
+                <h3>Leaves</h3>
+
+                <p> View All</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-pie-graph"></i>
+              </div>
+              <a href="view-leaves" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+            
+       </div>   
+        
         <!-- Main row -->
         
         
                 <!-- /. tools -->
-              </div>
+              
               <!-- /.card-header -->
               <div class="card-body pt-0">
                 <!--The calendar -->
