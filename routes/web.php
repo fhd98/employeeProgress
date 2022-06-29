@@ -61,7 +61,16 @@ Route::post('taskPost',[\App\Http\Controllers\tasksController::class,'taskPostAc
 
 Route::get('/task-view',[App\Http\Controllers\tasksController::class,'taskViewAction']);
 
+//admin profile
 
+
+Route::get('/profile-edit',[App\Http\Controllers\profileController::class,'editProfile']);
+Route::post('/profilePost',[App\Http\Controllers\profileController::class,'profilePostAction']);
+
+
+//Route::get("/profile", function(){
+//   return view("addProfile");
+//});
 
 
 

@@ -60,13 +60,7 @@ class apiController extends Controller {
         return["status" => "Task Completed"];
     }
 
-//    public function leaveApply() {
-//        $post = request()->post();
-//        $oLeave = leavesModel::Store($post);
-//        return ['leave' => 'applied'];
-//    }
-    
-//changed
+
     
      public function leaveApply() {
         $POST = request()->post();

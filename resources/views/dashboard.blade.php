@@ -225,6 +225,38 @@
         
         <!-- Main row -->
         
+        <div class="row">
+        <div class="col-lg-3 col-6">
+        <div class="small-box bg-success">
+              <div class="inner">
+                <h3> Profile</h3>
+
+                <p>Update</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-person-add"></i>
+              </div>
+              <a href="profile-edit" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+            
+            <div class="col-lg-3 col-6">
+        <div class="small-box bg-info">
+              <div class="inner">
+                <h3>Leaves</h3>
+
+                <p> View All</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-pie-graph"></i>
+              </div>
+              <a href="view-leaves" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+            
+       </div>
+        
+        
         
                 <!-- /. tools -->
               

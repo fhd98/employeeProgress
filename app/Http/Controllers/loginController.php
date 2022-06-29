@@ -47,12 +47,13 @@ class loginController extends Controller {
 
 //putting deptname in session
 
-            $adminDept = loginModel::select('department')
+            $adminDept = loginModel::select('department','adminID')
                     ->where('username', '=', $data['username'])
                     ->first();
 
             
             session(['adminDeptName' => $adminDept->department]);
+            session(['adminID' => $adminDept->adminID]);
 
             $countPending = empModel::where('status', 'pending')->where('department', session('adminDeptName'))->count();
             $countApproved = empModel::where('status', 'approved')->where('department', session('adminDeptName'))->count();
