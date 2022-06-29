@@ -60,16 +60,34 @@ class profileController extends Controller {
         }
         else {        
         
-        $updateProfile= loginModel::where('adminID',$adminID)->update(['name'=>$request['admin_name'], 
-            'dob'=>$request['dob'], 
-            'experience'=>$request['experience'], 
-            'expertise'=>$request['expertise']] );
-                                                                       
-                                                                       
+        
+          //dd($request);  
+        
+        //image
+        
+        if ($request->hasFile('picture')){            
+       
+        $path= public_path("adminProfilePictures");
+        
+        $imageName= $adminID.'_admin_prof_image.'.$request->picture->extension();
+        $request->picture->move($path, $imageName);
+        loginModel::where('adminID',$adminID)->update(['picture'=>$imageName]);
         
         return redirect('profile-edit');
-        }
+            
+           // return "HElloo";
+    }
+        loginModel::where('adminID',$adminID)->update(['name'=>$request['admin_name'], 
+            'dob'=>$request['dob'], 
+            'experience'=>$request['experience'], 
+            'expertise'=>$request['expertise']] );                                                             
+                                                                       
+        
+        return redirect('dashboard');
+    
+    
     }
     
     
+}
 }

@@ -85,7 +85,7 @@
                 <h3 class="card-title">Admin Profile</h3>
               </div>
             
-              <form method="POST" action="/profilePost">
+              <form method="POST" action="/profilePost" enctype="multipart/form-data">
                   
                   {!! csrf_field() !!}
                   
@@ -122,7 +122,7 @@
                 
                     <div class="form-group">
                         <label>Profile Picture </label>
-                        <input name="picture" value="{{$posted['dob'] ?? $adminInfo['picture'] ?? ''}}"  type="file" accept="image/png, image/gif, image/jpeg" class="form-control" placeholder=""/>
+                        <input name="picture"  type="file"  class="form-control" placeholder=""/>
                       </div>
                  
                   
