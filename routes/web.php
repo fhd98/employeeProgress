@@ -67,10 +67,13 @@ Route::get('/task-view',[App\Http\Controllers\tasksController::class,'taskViewAc
 Route::get('/profile-edit',[App\Http\Controllers\profileController::class,'editProfile']);
 Route::post('/profilePost',[App\Http\Controllers\profileController::class,'profilePostAction']);
 
+Route::get('/profile-view',[App\Http\Controllers\profileController::class,'viewProfile']);
 
-//Route::get("/profile", function(){
-//   return view("addProfile");
-//});
+
+
+Route::get("/profile", function(){
+   return view("profileView");
+});
 
 
 

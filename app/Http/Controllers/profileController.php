@@ -46,7 +46,9 @@ class profileController extends Controller {
         $POST = request()->post();
         $validator = validator()->make($POST, [
             'experience' => 'required|gt:0',
-            'dob' => 'required|date',
+            'dob' => 'required|date|before:"2000-01-01" ',
+            'picture' => 'image',
+            'picture' =>'mimes:jpg,bmp,png'
                 ],
                 [
                     'experience.gt' => 'Experience must be greater than 0',]
@@ -90,4 +92,23 @@ class profileController extends Controller {
     
     
 }
+
+public function viewProfile() {
+    
+    if (session()->has('user')) {
+                       
+            
+            $adminID=(session('adminID'));
+            $data['adminInfo']= loginModel::where('adminID', $adminID)->first();
+            
+            return view('profileView', $data );
+        } else {
+            $error = "Please Login First!";
+            return view('login', compact('error'));
+        }
+    
 }
+}
+
+
+

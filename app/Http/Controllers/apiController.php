@@ -72,7 +72,9 @@ class apiController extends Controller {
             
                 ],
                 ['details.min' => 'Minimum 5 characters required in details',
-                 'daysLeave.gt' => 'Number of Days must be greater than 0',]
+                 'daysLeave.gt' => 'Number of Days must be greater than 0',
+                  'startDate' => 'required|date|after:"2022-06-05" ',
+                  'endDate' => 'required|date|after:startDate ',]
         );
         if ($validator->fails()) {
             return ['leave' => $validator->errors()->first()];

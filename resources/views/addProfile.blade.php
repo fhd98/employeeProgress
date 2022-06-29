@@ -122,7 +122,7 @@
                 
                     <div class="form-group">
                         <label>Profile Picture </label>
-                        <input name="picture"  type="file"  class="form-control" placeholder=""/>
+                        <input name="picture"   type="file"  class="form-control" placeholder=""/>
                       </div>
                  
                   
