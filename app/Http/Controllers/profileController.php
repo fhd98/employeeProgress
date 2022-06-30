@@ -73,9 +73,13 @@ class profileController extends Controller {
         
         $imageName= $adminID.'_admin_prof_image.'.$request->picture->extension();
         $request->picture->move($path, $imageName);
-        loginModel::where('adminID',$adminID)->update(['picture'=>$imageName]);
+        loginModel::where('adminID',$adminID)->update(['picture'=>$imageName, 
+            'name'=>$request['admin_name'], 
+            'dob'=>$request['dob'], 
+            'experience'=>$request['experience'], 
+            'expertise'=>$request['expertise']]);
         
-        return redirect('profile-edit');
+        return redirect('profile-view');
             
            // return "HElloo";
     }
@@ -85,7 +89,7 @@ class profileController extends Controller {
             'expertise'=>$request['expertise']] );                                                             
                                                                        
         
-        return redirect('dashboard');
+        return redirect('profile-view');
     
     
     }
