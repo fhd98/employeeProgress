@@ -37,6 +37,9 @@ Route::post('/taskProgress',[apiController::class,'taskProgress']);
 Route::post('/leaveApply',[apiController::class,'leaveApply']);
 Route::post('/leaveStatus',[apiController::class,'leaveViewStatus']);
 
+//profile
 
+
+Route::post('/adminProfile',[apiController::class,'adminProfile']);
 
 

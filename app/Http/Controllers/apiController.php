@@ -10,6 +10,7 @@ namespace App\Http\Controllers;
 use App\Models\empModel;
 use App\Models\tasksModel;
 use App\Models\leavesModel;
+use App\Models\loginModel;
 
 /**
  * Description of apiController
@@ -67,14 +68,14 @@ class apiController extends Controller {
         
         $validator = validator()->make($POST, [
             
-            'daysLeave'=>'gt:0',
-            'details' => 'required|min:5',            
-            
+            'daysLeave' => 'gt:0',
+            'details' => 'required|min:5',
+            'startDate' => 'required|date|after:"2022-06-05" ',
+            'endDate' => 'after:startDate ',
                 ],
                 ['details.min' => 'Minimum 5 characters required in details',
-                 'daysLeave.gt' => 'Number of Days must be greater than 0',
-                  'startDate' => 'required|date|after:"2022-06-05" ',
-                  'endDate' => 'required|date|after:startDate ',]
+                    'daysLeave.gt' => 'Number of Days must be greater than 0',
+                ]
         );
         if ($validator->fails()) {
             return ['leave' => $validator->errors()->first()];
@@ -93,6 +94,13 @@ class apiController extends Controller {
         $post = request()->post();
         $oLeave = leavesModel::where('emp_name', $post['empName'])->where('department', $post['empDept'])->get();
         return $oLeave;
+    }
+    
+    public function adminProfile() {
+
+        $post = request()->post();
+        $adminProfile = loginModel::where('department', $post['empDept'])->first();
+        return $adminProfile;
     }
 
 }

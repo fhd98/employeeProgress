@@ -205,7 +205,7 @@ footer a {
 
 <div class="card-container">
     <span class="pro"><a href="profile-edit"> Edit </a></span>
-	<img class="round" src="adminProfilePictures/{{ ($adminInfo->picture) }}" alt="user" width="200" height="200" />
+	<img class="round" src="adminProfilePictures/{{ ($adminInfo->picture) }}" alt="Admin Picture" width="200" height="200" />
 	<h3>{{$adminInfo['name']}}</h3>
 	<h6>{{$adminInfo['department']}}</h6>
         <p><b>Expertise:</b>   {{$adminInfo['expertise']}}</p>
