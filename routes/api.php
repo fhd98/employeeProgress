@@ -23,6 +23,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //Route::post('/signup',[\App\Http\Controllers\empController::class,'signup']);
 
 Route::post('/signup',[apiController::class,'signup']);
+Route::post('/allDepartments',[apiController::class,'showDepartments']);
 
 Route::post('/login',[apiController::class,'loginCheck']);
 

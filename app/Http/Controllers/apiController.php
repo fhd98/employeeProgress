@@ -34,6 +34,12 @@ class apiController extends Controller {
         $oEmp = empModel::Store($post);
         return ['status' => 'pending'];
     }
+    
+    public function showDepartments() {
+        $allDepartments=loginModel::select('department','adminID')->get();
+        return $allDepartments;
+        
+    }
 
     public function loginCheck() {
         $post = request()->post();
