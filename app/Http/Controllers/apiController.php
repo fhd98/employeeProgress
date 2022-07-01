@@ -22,6 +22,15 @@ class apiController extends Controller {
     //put your code here
     public function signup() {
         $post = request()->post();
+        
+        
+        $checkEmailExists= empModel::where('e_email',$post['email'])->first();
+        
+        if($checkEmailExists){
+            return ['status' => 'exists'];
+        }
+        
+        
         $oEmp = empModel::Store($post);
         return ['status' => 'pending'];
     }
