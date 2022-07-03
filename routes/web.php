@@ -68,11 +68,12 @@ Route::get('/profile-edit',[App\Http\Controllers\profileController::class,'editP
 Route::post('/profilePost',[App\Http\Controllers\profileController::class,'profilePostAction']);
 
 Route::get('/profile-view',[App\Http\Controllers\profileController::class,'viewProfile']);
+Route::get('/team-profiles',[App\Http\Controllers\profileController::class,'viewTeamProfile']);
 
 
 
 Route::get("/profile", function(){
-   return view("profileView");
+   return view("teamView");
 });
 
 

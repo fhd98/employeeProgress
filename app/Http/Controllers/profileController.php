@@ -8,6 +8,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\loginModel;
+use App\Models\empModel;
 
 /**
  * Description of profileController
@@ -112,6 +113,27 @@ public function viewProfile() {
         }
     
 }
+
+
+
+public function viewTeamProfile() {
+    
+    if (session()->has('user')) {
+                       
+            
+            $adminDept=(session('adminDeptName'));
+            $data['empInfo']= empModel::where('department', $adminDept)->where('status', 'approved')->get();
+            
+            return view('teamView', $data );
+        } else {
+            $error = "Please Login First!";
+            return view('login', compact('error'));
+        }
+    
+}
+
+
+
 }
 
 

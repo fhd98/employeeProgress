@@ -128,6 +128,12 @@ class apiController extends Controller {
     public function updateEmpProfile() {
 
         $post = request()->post();
+        
+        $empID=$post['empID'];
+        
+                   
+        
+        
         $empData = empModel::where('employeeID', $post['empID'])->update(['e_name' => $post['name'],
             'dob' => $post['dob'],
             'interests' => $post['interests']]);
@@ -138,6 +144,7 @@ class apiController extends Controller {
     public function fetchTeamProfile() {
 
         $post = request()->post();
+                
         $teamData = empModel::where('department', $post['empDept'])->where('status', 'approved')->get();
         return $teamData;
     }
