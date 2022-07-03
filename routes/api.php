@@ -43,4 +43,10 @@ Route::post('/leaveStatus',[apiController::class,'leaveViewStatus']);
 
 Route::post('/adminProfile',[apiController::class,'adminProfile']);
 
+Route::post('/fetchEmpProfile',[apiController::class,'fetchEmpProfile']);
+Route::post('/updateEmpProfile',[apiController::class,'updateEmpProfile']);
+
+Route::post('/fetchTeamProfile',[apiController::class,'fetchTeamProfile']);
+
+
 

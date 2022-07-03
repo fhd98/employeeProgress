@@ -103,7 +103,7 @@ class apiController extends Controller {
      }
     
     
-    //unchanged
+    
 
     public function leaveViewStatus() {
         $post = request()->post();
@@ -116,6 +116,30 @@ class apiController extends Controller {
         $post = request()->post();
         $adminProfile = loginModel::where('department', $post['empDept'])->first();
         return $adminProfile;
+    }
+    
+    public function fetchEmpProfile() {
+
+        $post = request()->post();
+        $empData = empModel::where('employeeID', $post['empID'])->first();
+        return $empData;
+    }
+    
+    public function updateEmpProfile() {
+
+        $post = request()->post();
+        $empData = empModel::where('employeeID', $post['empID'])->update(['e_name' => $post['name'],
+            'dob' => $post['dob'],
+            'interests' => $post['interests']]);
+        
+        return ['status' => 'pass'];
+    }
+    
+    public function fetchTeamProfile() {
+
+        $post = request()->post();
+        $teamData = empModel::where('department', $post['empDept'])->where('status', 'approved')->get();
+        return $teamData;
     }
 
 }
