@@ -188,6 +188,14 @@ footer a {
       <li class=" d-sm-inline-block">
         <a href="/task-view" class="nav-link">Tasks View</a>
       </li>
+      <li class=" d-sm-inline-block">
+          <a href="/profile-view" class="nav-link">Admin Profile</a>
+      </li><!-- comment -->
+
+      <li class=" d-sm-inline-block">
+          <a href="/team-profiles" class="nav-link">Team Profiles</a>
+      </li>
+
       
       
       

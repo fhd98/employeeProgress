@@ -62,7 +62,18 @@
       <li class=" d-sm-inline-block">
         <a href="/task-view" class="nav-link">Tasks View</a>
       </li>
+      <!--sds-->
       
+      <li class=" d-sm-inline-block">
+        <a href="/view-leaves" class="nav-link">Leaves Status</a>
+      </li><!-- comment -->
+<li class=" d-sm-inline-block">
+        <a href="/profile-view" class="nav-link">Admin Profile</a>
+</li><!-- comment -->
+
+<li class=" d-sm-inline-block">
+        <a href="/team-profiles" class="nav-link">Team Profiles</a>
+</li><!-- comment -->
     </ul>
 
     <!-- Right navbar links -->

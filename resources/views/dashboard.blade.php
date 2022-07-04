@@ -256,6 +256,25 @@
             
        </div>
         
+        <div class="row">
+        
+            
+            <div class="col-lg-3 col-6">
+        <div class="small-box bg-info">
+              <div class="inner">
+                <h3>Team Profiles</h3>
+
+                <p> View</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-pie-graph"></i>
+              </div>
+              <a href="team-profiles" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+            
+       </div>
+        
         
         
                 <!-- /. tools -->
